@@ -8,3 +8,13 @@ dependencies {
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
+
+//tasks.withType(JavaCompile) {
+//    options.incremental = true // one flag, and things will get MUCH faster
+//    options.encoding = "UTF-8"
+//}
+
+compileJava {
+    options.incremental = true // one flag, and things will get MUCH faster
+    options.encoding = "UTF-8"
+}

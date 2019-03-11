@@ -1,1 +1,1 @@
-include ':app', ':anolib'
+include ':app', ':anolib', ':onclickbindtool'

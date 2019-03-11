@@ -4,7 +4,6 @@ import com.google.auto.service.AutoService;
 import com.squareup.javapoet.JavaFile;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -23,7 +22,6 @@ import javax.lang.model.util.Elements;
 
 /**
  * Desc:注解处理器
- *
  * @author raoxuting
  * since 2019/1/31
  */
@@ -67,13 +65,11 @@ public class OnClickAnnoProcessor extends AbstractProcessor {
             }
             final OnClick onClickAnnotation = methodElement.getAnnotation(OnClick.class);
             final int[] array = onClickAnnotation.value();
-            Integer[] value = Arrays.stream(array).boxed().toArray(Integer[]::new);
-            beanGenerator.setViewIds(value);
+            beanGenerator.setViewIds(array);
         }
         for (String key : classInfoMap.keySet()) {
             ClassInfoBeanGenerator generator = classInfoMap.get(key);
-            JavaFile javaFile = JavaFile.builder(generator.getPackageName(),
-                    generator.generateCode(key)).build();
+            JavaFile javaFile = JavaFile.builder(generator.getPackageName(), generator.generateCode(key)).build();
             try {
                 //生成文件
                 javaFile.writeTo(processingEnv.getFiler());

@@ -31,4 +31,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //    implementation 'com.jakewharton:butterknife:10.0.0'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation project(':anolib')
+    annotationProcessor project(':anolib')
+    implementation project(':onclickbindtool')
+}
+
+tasks.withType(JavaCompile) {
+    options.incremental = true // one flag, and things will get MUCH faster
+    options.encoding = "UTF-8"
 }
