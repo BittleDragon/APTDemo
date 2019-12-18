@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -32,11 +35,16 @@ dependencies {
     //    implementation 'com.jakewharton:butterknife:10.0.0'
     //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation project(':anolib')
+    kapt project(':anolib')
     annotationProcessor project(':anolib')
     implementation project(':onclickbindtool')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 tasks.withType(JavaCompile) {
     options.incremental = true // one flag, and things will get MUCH faster
     options.encoding = "UTF-8"
+}
+repositories {
+    mavenCentral()
 }

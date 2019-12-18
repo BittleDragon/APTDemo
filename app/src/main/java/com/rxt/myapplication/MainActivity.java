@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.rxt.anolib.OnClick;
-import com.rxt.onclickbindtool.OnClickBindTool;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,10 +12,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OnClickBindTool.bind(this);
+//        OnClickBindTool.bind(this);
     }
 
-    @OnClick({R.id.tv_hello_world, R.id.btn_apt})
+//    @OnClick({R.id.tv_hello_world, R.id.btn_apt})
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.tv_hello_world :
